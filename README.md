@@ -37,9 +37,11 @@ quiz-frontend/                  # Angular
 
 
 🚀 Getting Started
+
 🧩 Prerequisites
 
 Make sure you have installed:
+
 Java 17+
 
 Maven
@@ -141,4 +143,5 @@ Sticky footer
 Clean and minimal design
 
 🏁 License
+
 This project is open-source under the MIT License
