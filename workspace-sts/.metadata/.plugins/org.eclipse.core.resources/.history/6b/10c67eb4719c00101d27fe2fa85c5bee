@@ -1,9 +1,0 @@
-package com.project.quiz_app.entity;
-
-import jakarta.persistence.Entity;
-
-@Entity
-@Table(name="tbl_questions")
-public class Question {
-
-}
