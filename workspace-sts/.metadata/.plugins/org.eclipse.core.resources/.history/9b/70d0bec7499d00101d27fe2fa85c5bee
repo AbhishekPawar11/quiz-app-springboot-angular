@@ -1,0 +1,6 @@
+package com.project.quiz_app.dto;
+
+public class OptionDto {
+	 private Long id;
+	    private String text;
+}

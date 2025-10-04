@@ -1,0 +1,41 @@
+package com.project.quiz_app.dto;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class ResponseDto<T> {
+    
+	private List<T> data;
+	private boolean error;
+	private String message;
+	
+	
+	public ResoponseDto(List<T> data , String message){
+		this.data = data;
+		this.error = false;
+		this.message = message;
+	}
+	
+	public 
+	
+	public List<T> getData() {
+		return data;
+	}
+	public void setData(List<T> data) {
+		this.data = data;
+	}
+	public boolean isError() {
+		return error;
+	}
+	public void setError(boolean error) {
+		this.error = error;
+	}
+	public String getMessage() {
+		return message;
+	}
+	public void setMessage(String message) {
+		this.message = message;
+	}
+	
+	
+}

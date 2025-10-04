@@ -1,0 +1,5 @@
+package com.project.quiz_app.dao;
+
+public interface QuestionDao {
+
+}

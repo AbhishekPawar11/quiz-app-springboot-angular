@@ -1,0 +1,37 @@
+.results-container {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .score {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+  }
+  
+  .question-list {
+    text-align: left;
+    margin-top: 20px;
+  }
+  
+  .question-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    background: #fafafa;
+  }
+  
+  .correct {
+    color: #2e7d32;
+    font-weight: bold;
+  }
+  
+  .chosen {
+    color: #c62828;
+  }
+  
+  button {
+    margin-top: 20px;
+  }
+  

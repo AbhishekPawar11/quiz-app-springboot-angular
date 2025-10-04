@@ -1,0 +1,5 @@
+package com.project.quiz_app.rest.controller;
+
+public class QuestionController {
+
+}

@@ -1,0 +1,21 @@
+
+ <h2 class="title">Available Quizzes</h2>
+ 
+<div class="quiz-wrapper">
+    <mat-card *ngFor="let quiz of quizzes" class="quiz-card">
+        <mat-card-header>
+           <mat-icon mat-card-avatar color="primary">quiz</mat-icon>
+           <mat-card-title>{{quiz.title}}</mat-card-title>
+          
+        </mat-card-header>
+        
+         <mat-card-content>
+            <p>{{quiz.description}}</p>
+         </mat-card-content>
+
+         <mat-card-actions>
+             <button mat-raised-button color="primary" (click)="startQuiz(quiz.id)">Start Quiz</button>
+         </mat-card-actions>
+    </mat-card>
+</div>
+

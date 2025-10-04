@@ -1,0 +1,37 @@
+package com.project.quiz_app.service.impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.project.quiz_app.dao.QuestionDao;
+import com.project.quiz_app.entity.Question;
+import com.project.quiz_app.service.QuestionService;
+
+@Service
+public class QuestionServiceImpl implements QuestionService{
+   
+	 
+	  @Autowired
+	 private QuestionDao questionDao;
+	@Override
+	public List<Question> getAllQuestions(Long quizId) {
+		List<Question> questions = questionDao.findByQuiz(quizId);
+		 if(!questions.isEmpty() || questions != null) {
+			 
+			questions.stream()
+			         .forEach(q ->{
+			           
+			        	q.getOptions().stream()
+			        	              .forEach(o ->{
+			        	            	  o.setCorrect(false);
+			        	              });
+			         });
+			
+			return questions;
+		 }
+		 return null;
+	}
+
+}

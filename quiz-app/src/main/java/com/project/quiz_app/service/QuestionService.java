@@ -1,0 +1,11 @@
+package com.project.quiz_app.service;
+
+import java.util.List;
+
+import com.project.quiz_app.entity.Question;
+
+public interface QuestionService {
+     
+	
+	public List<Question> findByQuizId(Long quizId);
+}

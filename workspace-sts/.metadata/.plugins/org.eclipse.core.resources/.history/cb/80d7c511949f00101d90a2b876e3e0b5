@@ -1,0 +1,5 @@
+package com.project.quiz_app.dto;
+
+public class QuizDto {
+
+}

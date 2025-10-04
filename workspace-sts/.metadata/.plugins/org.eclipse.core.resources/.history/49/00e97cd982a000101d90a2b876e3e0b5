@@ -1,0 +1,108 @@
+package com.project.quiz_app.rest.controller;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.project.quiz_app.dto.QuestionResultDto;
+import com.project.quiz_app.dto.QuizDto;
+import com.project.quiz_app.dto.QuizResultDto;
+import com.project.quiz_app.dto.ResponseDto;
+import com.project.quiz_app.entity.Option;
+import com.project.quiz_app.entity.Question;
+import com.project.quiz_app.entity.Quiz;
+import com.project.quiz_app.service.QuestionService;
+import com.project.quiz_app.service.QuizService;
+
+@RestController
+@RequestMapping("/quiz")
+public class QuizController {
+    
+	@Autowired
+	private QuizService quizService;
+	
+	@Autowired
+	private QuestionService questionService;
+	
+	@GetMapping
+	public ResponseEntity<ResponseDto<QuizDto>> getAllQuiz(){
+		List<Quiz> quizList = quizService.getAllQuiz();
+		
+		if(quizList.isEmpty()  || quizList == null) {
+			
+		   return new ResponseEntity<>(new ResponseDto<>(false, "No Quiz Found"), HttpStatus.OK);
+		}
+		List<QuizDto> quizzes = new ArrayList<>();
+		quizList.stream()
+		        .forEach(quiz ->{
+		        	QuizDto dto = new QuizDto();
+		        	dto.setId(quiz.getId());
+		        	dto.setTitle(quiz.getDescription());
+		        	dto.setTitle(quiz.getTitle());
+		        	quizzes.add(dto);
+		        });
+		
+		return new ResponseEntity<ResponseDto<QuizDto>>(new ResponseDto<>(quizzes ,"Quizzes fetched Successfully"), HttpStatus.OK);
+		       
+	} 
+	
+	@PostMapping("/{quizId}/submit")
+	public ResponseEntity<QuizResultDto> submitQuiz(@PathVariable Long quizId , @RequestBody Map<Long , Long> answers  ) {
+		  
+		List<Question> questions = questionService.findByQuizId(quizId);
+		  
+		 
+		int score = 0;
+		
+		List<QuestionResultDto> results = new ArrayList<>();
+		
+		for(Question q : questions) {
+			
+			Long selectedOptionId = answers.get(q.getId());
+			
+			Option correctOption = q.getOptions().stream()
+					                             .filter(Option :: isCorrect)
+					                             .findFirst()
+					                             .orElse(null);
+			
+			Option selectedOption = q.getOptions().stream()
+					                              .filter(o -> o.getId().equals(selectedOptionId))
+					                              .findFirst()
+					                              .orElse(null);
+			
+			if(selectedOption != null && correctOption.equals(selectedOption)) {
+				score++;
+			}
+			
+			QuestionResultDto qResult = new QuestionResultDto();
+			
+			qResult.setQuestionId(q.getId());
+			qResult.setQuestionText(q.getText());
+			qResult.setSelectedOptionText(selectedOption != null ? selectedOption.getText() : "No Answer");
+			qResult.setCorrectOptionText(correctOption != null? correctOption.getText() : "N/A");
+			
+			results.add(qResult);
+			
+		}
+		
+		QuizResultDto response = new QuizResultDto();
+		
+		response.setScore(score);
+		response.setTotal(questions.size());
+		response.setResults(results);
+		
+		return new ResponseEntity<QuizResultDto>(response , HttpStatus.OK);
+	}
+	
+} 

@@ -1,0 +1,8 @@
+package com.project.quiz_app.dto;
+
+import java.util.List;
+
+public class ResoponseDto {
+    
+	private List<T> data;
+}

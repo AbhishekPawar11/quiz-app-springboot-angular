@@ -1,0 +1,34 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f4f6f8;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .app-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  .app-content {
+    flex: 1;
+    padding: 24px;
+    background: #e9e4ff;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .app-footer {
+    justify-content: center;
+    font-size: 0.9rem;
+    color: white;
+    position: sticky;
+    bottom: 0;
+    height: 15%;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  }
+  

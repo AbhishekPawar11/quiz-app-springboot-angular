@@ -1,0 +1,35 @@
+<div *ngIf="questions.length>0">
+   <h2>Question {{currentIndex +1}} of {{questions.length}}</h2>
+    <p>{{ questions[currentIndex].text }}</p>
+
+   <div *ngFor="let opt of questions[currentIndex].options">
+         
+      <label>
+           <input
+             type="radio"
+             name="q{{questions[currentIndex].id}}"
+             [value]="opt.id"
+             [checked]="answers[questions[currentIndex].id] === opt.id"
+             (change)="selectOption(questions[currentIndex].id , opt.id)"
+           />
+           {{opt.text}}
+      </label>
+   </div>
+    
+   <div class="buttons">
+       <button mat-raised-button color="primary" (click)="prevQuestion()" [disabled]="currentIndex <= 0">
+           Previous
+       </button>
+       <button mat-raised-button color="primary" (click)="nextQuestion()" [disabled]="currentIndex>= questions.length-1">
+        Next
+    </button>
+
+       <button *ngIf="currentIndex === questions.length-1" mat-raised-button color="accent" (click)="submitQuiz()">
+          Submit
+       </button>
+   </div>
+
+    <div *ngIf="questions.length === 0 && questionsRespMsg">
+        <p>{{questionsRespMsg}}</p>
+    </div>
+</div>

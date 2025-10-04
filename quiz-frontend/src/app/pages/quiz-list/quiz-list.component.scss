@@ -1,0 +1,65 @@
+
+/* Title */
+.title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+  text-align: center;
+  color: #6d3bb4;
+}
+
+/* Responsive grid */
+.quiz-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 20px;
+}
+/* Quiz card styling */
+.quiz-card {
+  width: 300px;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  background-color: #fff;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Hover effects */
+.quiz-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+mat-card-title {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+/* Card content */
+mat-card-content p{
+  min-height: 80px;
+  color: #555;
+}
+mat-card-actions {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 16px;
+}
+/* Button style */
+button {
+  width: 90%;
+  font-weight: 500;
+  border-radius: 8px;
+}
+
+/* Mobile optimization */
+@media (max-width: 600px) {
+  .title {
+    font-size: 1.6rem;
+  }
+  .quiz-card{
+    width: 90%;
+  }
+}

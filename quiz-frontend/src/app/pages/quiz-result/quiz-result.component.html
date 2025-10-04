@@ -1,0 +1,33 @@
+<div class="results-containter" *ngIf="result">
+   <h2>Quiz Results</h2>
+    <p class="score">
+      You scored <strong>{{result.score}}</strong> / {{result.total}}
+    </p>
+
+    <div class="question-list">
+        <div class="question-card" *ngFor="let r of result.results">
+           <h3> 
+            <strong>Question : {{r.questionText}}</strong> 
+           </h3> 
+           <mat-icon style="color: green;" *ngIf="r.correct">check</mat-icon>
+           <mat-icon style="color: red;" *ngIf="!r.correct">close</mat-icon>
+           <ul>
+              <li class="correct">
+                Correct Option : {{r.correctOptionText}}
+              </li>
+              <li [ngClass]="r.correctOptionText == r.selectedOptionText? 'correct' : 'chosen'">
+                Your Answer : {{r.selectedOptionText}} 
+              </li>
+           </ul>
+        </div>
+    </div>
+
+    <button mat-raised-button color="primary" (click)="goToHome()">
+        Back to Quizzes
+    </button>
+</div>
+
+<div *ngIf="!result">
+    <p>No result data Found</p>
+    <button mat-raised-button color="accent" (click)="goToHome()"></button>
+</div>

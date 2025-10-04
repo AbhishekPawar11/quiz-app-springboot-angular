@@ -1,0 +1,13 @@
+-- Create a sample quiz
+INSERT INTO quizzes (id, title, description) VALUES (1, 'General Knowledge', 'A short GK quiz');
+
+-- Questions for the quiz
+INSERT INTO questions (id, quiz_id, text) VALUES (1,1,'What is the capital of France?');
+INSERT INTO options (id, question_id, text, is_correct) VALUES (1,1,'Berlin', FALSE);
+INSERT INTO options (id, question_id, text, is_correct) VALUES (2,1,'Paris', TRUE);
+INSERT INTO options (id, question_id, text, is_correct) VALUES (3,1,'Madrid', FALSE);
+
+INSERT INTO questions (id, quiz_id, text) VALUES (2,1,'2 + 3 = ?');
+INSERT INTO options (id, question_id, text, is_correct) VALUES (4,2,'3', FALSE);
+INSERT INTO options (id, question_id, text, is_correct) VALUES (5,2,'5', TRUE);
+INSERT INTO options (id, question_id, text, is_correct) VALUES (6,2,'4', FALSE);

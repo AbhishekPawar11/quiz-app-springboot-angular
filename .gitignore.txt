@@ -1,0 +1,15 @@
+workspace=sts/
+
+# Ignore build and OS files
+.DS_Store
+node_modules/
+dist/
+target/
+*.log
+
+# IntelliJ / VSCode
+.idea/
+.vscode/
+
+# Environment files
+*.env
