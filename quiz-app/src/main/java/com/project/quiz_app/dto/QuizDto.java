@@ -8,6 +8,7 @@ public class QuizDto {
 	private Long id;
 	private String title;
 	private String description;
+	private int timer;
 	
 	
 	public Long getId() {
@@ -27,6 +28,12 @@ public class QuizDto {
 	}
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	public int getTimer() {
+		return timer;
+	}
+	public void setTimer(int timer) {
+		this.timer = timer;
 	}
 	
 	

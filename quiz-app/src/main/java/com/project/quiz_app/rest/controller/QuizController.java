@@ -50,6 +50,7 @@ public class QuizController {
 		        	dto.setId(quiz.getId());
 		        	dto.setDescription(quiz.getDescription());
 		        	dto.setTitle(quiz.getTitle());
+		        	dto.setTimer(quiz.getTimer());
 		        	quizzes.add(dto);
 		        });
 		
@@ -91,7 +92,7 @@ public class QuizController {
 			qResult.setQuestionText(q.getText());
 			qResult.setSelectedOptionText(selectedOption != null ? selectedOption.getText() : "No Answer");
 			qResult.setCorrectOptionText(correctOption != null? correctOption.getText() : "N/A");
-			qResult.setCorrect(selectedOption.isCorrect());
+			qResult.setCorrect(selectedOption != null ? selectedOption.isCorrect(): false);
 			results.add(qResult);
 			
 		}

@@ -1,5 +1,10 @@
 <div *ngIf="questions.length>0">
+    <div class="timer">
+      <mat-icon>timer</mat-icon>
+      <span>{{formatTime(timer)}}</span>
+   </div>
    <h2>Question {{currentIndex +1}} of {{questions.length}}</h2>
+   
     <p>{{ questions[currentIndex].text }}</p>
 
    <div *ngFor="let opt of questions[currentIndex].options">

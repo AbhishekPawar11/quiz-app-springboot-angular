@@ -1,60 +1,61 @@
--- Quiz ID: 2
--- Title: Java Core Concepts Quiz
+-- Quiz ID: 11
+-- Title: Java OOP Principles Quiz
+-- Timer: 120 seconds
 
--- 1. Create the Quiz Entry
-INSERT INTO tbl_quiz (id, title, description) VALUES (2, 'Java Core Concepts Quiz', 'A 5-question quiz on fundamental Java programming principles.');
-
---------------------------------------------------------------------------------
--- Question 1: Interfaces (ID: 101)
---------------------------------------------------------------------------------
-INSERT INTO tbl_questions (id, quiz_id, text) VALUES (101, 2, 'What is a key characteristic of an interface in Java since Java 8?');
-
--- Options for Q1 (IDs: 1001 - 1004)
-INSERT INTO tbl_options (id, question_id, text, is_correct) VALUES (1001, 101, 'It cannot contain any implemented methods.', FALSE);
-INSERT INTO tbl_options (id, question_id, text, is_correct) VALUES (1002, 101, 'It can be instantiated directly.', FALSE);
-INSERT INTO tbl_options (id, question_id, text, is_correct) VALUES (1003, 101, 'It can contain default and static methods with implementation.', TRUE);
-INSERT INTO tbl_options (id, question_id, text, is_correct) VALUES (1004, 101, 'Its variables must be static and non-final.', FALSE);
+-- 1. Create the Quiz Entry with Timer
+INSERT INTO tbl_quiz (id, title, description, timer) VALUES (11, 'Java OOP Principles Quiz', 'A short quiz focused on Object-Oriented Programming (OOP) concepts in Java.', 120);
 
 --------------------------------------------------------------------------------
--- Question 2: Final Keyword (ID: 102)
+-- Question 1: Encapsulation (ID: 111)
 --------------------------------------------------------------------------------
-INSERT INTO tbl_questions (id, quiz_id, text) VALUES (102, 2, 'Which keyword is used to prevent a class from being subclassed (inherited)?');
+INSERT INTO tbl_questions (id, quiz_id, text) VALUES (111, 11, 'Which OOP concept is achieved by combining data and the methods that operate on that data into a single unit (class)?');
 
--- Options for Q2 (IDs: 1005 - 1008)
-INSERT INTO tbl_options (id, question_id, text, is_correct) VALUES (1005, 102, 'static', FALSE);
-INSERT INTO tbl_options (id, question_id, text, is_correct) VALUES (1006, 102, 'abstract', FALSE);
-INSERT INTO tbl_options (id, question_id, text, is_correct) VALUES (1007, 102, 'final', TRUE);
-INSERT INTO tbl_options (id, question_id, text, is_correct) VALUES (1008, 102, 'transient', FALSE);
-
---------------------------------------------------------------------------------
--- Question 3: JVM (ID: 103)
---------------------------------------------------------------------------------
-INSERT INTO tbl_questions (id, quiz_id, text) VALUES (103, 2, 'What does the abbreviation JVM stand for?');
-
--- Options for Q3 (IDs: 1009 - 1012)
-INSERT INTO tbl_options (id, question_id, text, is_correct) VALUES (1009, 103, 'Java Version Model', FALSE);
-INSERT INTO tbl_options (id, question_id, text, is_correct) VALUES (1010, 103, 'Joint Virtual Machine', FALSE);
-INSERT INTO tbl_options (id, question_id, text, is_correct) VALUES (1011, 103, 'Java Virtual Machine', TRUE);
-INSERT INTO tbl_options (id, question_id, text, is_correct) VALUES (1012, 103, 'Just Virtual Model', FALSE);
+-- Options for Q1 (IDs: 1101 - 1104)
+INSERT INTO tbl_options (id, question_id, text, is_correct) VALUES (1101, 111, 'Inheritance', FALSE);
+INSERT INTO tbl_options (id, question_id, text, is_correct) VALUES (1102, 111, 'Polymorphism', FALSE);
+INSERT INTO tbl_options (id, question_id, text, is_correct) VALUES (1103, 111, 'Encapsulation', TRUE);
+INSERT INTO tbl_options (id, question_id, text, is_correct) VALUES (1104, 111, 'Abstraction', FALSE);
 
 --------------------------------------------------------------------------------
--- Question 4: Collections (ID: 104)
+-- Question 2: Overriding vs. Overloading (ID: 112)
 --------------------------------------------------------------------------------
-INSERT INTO tbl_questions (id, quiz_id, text) VALUES (104, 2, 'Which java.util Map implementation guarantees the insertion order of key-value pairs?');
+INSERT INTO tbl_questions (id, quiz_id, text) VALUES (112, 11, 'The process of defining two methods in the same class with the same name but different parameter lists is called:');
 
--- Options for Q4 (IDs: 1013 - 1016)
-INSERT INTO tbl_options (id, question_id, text, is_correct) VALUES (1013, 104, 'ConcurrentHashMap', FALSE);
-INSERT INTO tbl_options (id, question_id, text, is_correct) VALUES (1014, 104, 'LinkedHashMap', TRUE);
-INSERT INTO tbl_options (id, question_id, text, is_correct) VALUES (1015, 104, 'TreeMap', FALSE);
-INSERT INTO tbl_options (id, question_id, text, is_correct) VALUES (1016, 104, 'IdentityHashMap', FALSE);
+-- Options for Q2 (IDs: 1105 - 1108)
+INSERT INTO tbl_options (id, question_id, text, is_correct) VALUES (1105, 112, 'Method Overriding', FALSE);
+INSERT INTO tbl_options (id, question_id, text, is_correct) VALUES (1106, 112, 'Method Hiding', FALSE);
+INSERT INTO tbl_options (id, question_id, text, is_correct) VALUES (1107, 112, 'Method Overloading', TRUE);
+INSERT INTO tbl_options (id, question_id, text, is_correct) VALUES (1108, 112, 'Method Binding', FALSE);
 
 --------------------------------------------------------------------------------
--- Question 5: Exception Handling (ID: 105)
+-- Question 3: Abstraction (ID: 113)
 --------------------------------------------------------------------------------
-INSERT INTO tbl_questions (id, quiz_id, text) VALUES (105, 2, 'In Java exception handling, which block is always executed, regardless of whether an exception is thrown or caught?');
+INSERT INTO tbl_questions (id, quiz_id, text) VALUES (113, 11, 'In Java, which two constructs are primarily used to achieve Abstraction?');
 
--- Options for Q5 (IDs: 1017 - 1020)
-INSERT INTO tbl_options (id, question_id, text, is_correct) VALUES (1017, 105, 'try', FALSE);
-INSERT INTO tbl_options (id, question_id, text, is_correct) VALUES (1018, 105, 'catch', FALSE);
-INSERT INTO tbl_options (id, question_id, text, is_correct) VALUES (1019, 105, 'throw', FALSE);
-INSERT INTO tbl_options (id, question_id, text, is_correct) VALUES (1020, 105, 'finally', TRUE);
+-- Options for Q3 (IDs: 1109 - 1112)
+INSERT INTO tbl_options (id, question_id, text, is_correct) VALUES (1109, 113, 'Classes and Objects', FALSE);
+INSERT INTO tbl_options (id, question_id, text, is_correct) VALUES (1110, 113, 'Abstract Classes and Interfaces', TRUE);
+INSERT INTO tbl_options (id, question_id, text, is_correct) VALUES (1111, 113, 'Constructors and Final Methods', FALSE);
+INSERT INTO tbl_options (id, question_id, text, is_correct) VALUES (1112, 113, 'Public and Private Keywords', FALSE);
+
+--------------------------------------------------------------------------------
+-- Question 4: Polymorphism (ID: 114)
+--------------------------------------------------------------------------------
+INSERT INTO tbl_questions (id, quiz_id, text) VALUES (114, 11, 'Polymorphism allows an object to take on many forms. Which type of polymorphism is achieved at runtime?');
+
+-- Options for Q4 (IDs: 1113 - 1116)
+INSERT INTO tbl_options (id, question_id, text, is_correct) VALUES (1113, 114, 'Compile-time Polymorphism (Overloading)', FALSE);
+INSERT INTO tbl_options (id, question_id, text, is_correct) VALUES (1114, 114, 'Run-time Polymorphism (Overriding)', TRUE);
+INSERT INTO tbl_options (id, question_id, text, is_correct) VALUES (1115, 114, 'Operator Overloading', FALSE);
+INSERT INTO tbl_options (id, question_id, text, is_correct) VALUES (1116, 114, 'Coercion', FALSE);
+
+--------------------------------------------------------------------------------
+-- Question 5: Inheritance (ID: 115)
+--------------------------------------------------------------------------------
+INSERT INTO tbl_questions (id, quiz_id, text) VALUES (115, 11, 'In Java, a class can directly inherit from:');
+
+-- Options for Q5 (IDs: 1117 - 1120)
+INSERT INTO tbl_options (id, question_id, text, is_correct) VALUES (1117, 115, 'Multiple Classes', FALSE);
+INSERT INTO tbl_options (id, question_id, text, is_correct) VALUES (1118, 115, 'Multiple Interfaces and Multiple Classes', FALSE);
+INSERT INTO tbl_options (id, question_id, text, is_correct) VALUES (1119, 115, 'Only one Class and multiple Interfaces', TRUE);
+INSERT INTO tbl_options (id, question_id, text, is_correct) VALUES (1120, 115, 'Only one Interface', FALSE);

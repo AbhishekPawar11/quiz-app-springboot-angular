@@ -7,6 +7,7 @@ export interface Quiz {
   id: number;
   title: string;
   description: string;
+  timer : number;
 }
 
 export interface Response {
@@ -30,6 +31,9 @@ export class QuizService {
   constructor(private http : HttpClient) { }
   
   private apiUrl = 'http://localhost:8080'
+   
+  public quiz:any = null;
+
 
   getQuizzes():Observable<Response>{
     return this.http.get<Response>(`${this.apiUrl}/quiz`);

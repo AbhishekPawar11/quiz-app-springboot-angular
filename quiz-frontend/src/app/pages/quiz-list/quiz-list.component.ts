@@ -37,7 +37,8 @@ export class QuizListComponent implements OnInit {
   )
   }
 
-  startQuiz(quizId:number){
-     this.router.navigate(['/quiz' , quizId]);
+  startQuiz(quiz:Quiz){
+    sessionStorage.setItem("quiz" , JSON.stringify(quiz));
+     this.router.navigate(['/quiz' , quiz.id]);
   }
 }

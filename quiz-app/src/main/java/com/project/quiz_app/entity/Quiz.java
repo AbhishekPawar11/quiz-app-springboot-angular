@@ -21,6 +21,7 @@ public class Quiz {
 	private Long id;
 	private String title;
 	private String description;
+	private int timer = 120;
 	
 	@OneToMany(mappedBy = "quiz" , cascade =  CascadeType.ALL , fetch=FetchType.EAGER)
 	private List<Question> question = new ArrayList<>();
@@ -30,12 +31,13 @@ public class Quiz {
 		
 	}
 	
-	public Quiz(Long id, String title, String description, List<Question> question) {
+	public Quiz(Long id, String title, String description, List<Question> question , int timer) {
 		super();
 		this.id = id;
 		this.title = title;
 		this.description = description;
 		this.question = question;
+		this.timer = timer;
 	}
 
 	public Long getId() {
@@ -68,6 +70,14 @@ public class Quiz {
 
 	public void setQuestion(List<Question> question) {
 		this.question = question;
+	}
+
+	public int getTimer() {
+		return timer;
+	}
+
+	public void setTimer(int timer) {
+		this.timer = timer;
 	}
 	
 	
