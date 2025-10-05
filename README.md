@@ -1,59 +1,147 @@
-# QuizFrontend
+🧠 Online Quiz Application
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.0.
+A full-stack web application built with Spring Boot and Angular that allows users to take online quizzes, view their scores, and see correct answers.
+It demonstrates a simple quiz flow — from listing available quizzes to taking them and viewing results — with clean UI using Angular Material.
 
-## Development server
+🏗️ Tech Stack
 
-To start a local development server, run:
+🔹 Backend
+Spring Boot
+ 
+Spring Data JPA (Hibernate)
 
-```bash
+H2 Database (in file mode)
+
+RESTful APIs
+
+🔹 Frontend
+Angular 
+
+Angular Material UI
+
+Responsive Design
+
+⚙️ Project Structure
+
+quiz-app/
+
+ ├── src/                       # Spring Boot backend
+                              
+ ├── pom.xml                    # Maven dependencies
+
+ ├── README.md
+
+ └── ...
+
+quiz-frontend/                  # Angular
+
+
+🚀 Getting Started
+
+🧩 Prerequisites
+
+Make sure you have installed:
+
+Java 17+
+
+Maven
+
+Node.js (v18+)
+
+Angular CLI
+
+
+🖥️ Backend Setup (Spring Boot)
+
+1️⃣ Navigate to backend folder:
+
+cd quiz-app
+
+2️⃣ Build the project:
+
+mvn clean install
+
+3️⃣ Run the Spring Boot app:
+
+mvn spring-boot:run
+
+
+The backend will start at 👉
+📍 http://localhost:8080
+
+4️⃣ H2 Console (for development)
+
+You can view the in-memory database here:
+
+📍 http://localhost:8080/h2-console
+
+Use these credentials:
+
+JDBC URL: jdbc:h2:file:./data/quizdb
+
+Username: sa
+
+Password:root
+
+
+🌐 Frontend Setup (Angular)
+
+1️⃣ Navigate to Angular app folder:
+
+cd quiz-frontend
+
+2️⃣ Install dependencies:
+
+npm install
+
+3️⃣ Run the Angular app:
+
 ng serve
-```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-## Code scaffolding
+Frontend runs at 👉
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+📍 http://localhost:4200
 
-```bash
-ng generate component component-name
-```
+🧭 Application Flow
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+1️⃣ Quiz List Page
 
-```bash
-ng generate --help
-```
+Displays all available quizzes
 
-## Building
+User clicks "Start Quiz" to begin
 
-To build the project run:
+2️⃣ Quiz Questions Page
 
-```bash
-ng build
-```
+Shows one question per screen
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+“Next” and “Previous” navigation buttons
 
-## Running unit tests
+“Submit” button calls backend API
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+3️⃣ Result Page
 
-```bash
-ng test
-```
+Displays total score
 
-## Running end-to-end tests
+Highlights correct and incorrect answers
 
-For end-to-end (e2e) testing, run:
+## 🧠 API Endpoints
 
-```bash
-ng e2e
-```
+- **GET** `/quiz/` → Get all quizzes  
+- **GET** `/question/{quizId}` → Get all questions (without correct answers)  
+- **POST** `/quiz/{quizId}/submit` → Submit answers and calculate score  
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
 
-## Additional Resources
+🎨 UI Highlights
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Built with Angular Material
+
+Responsive cards and layout
+
+Sticky footer
+
+Clean and minimal design
+
+🏁 License
+
+This project is open-source under the MIT License
